@@ -15,7 +15,7 @@ public:
     ListNode* addTwoNumbers(ListNode* l1, ListNode* l2) {
 
       int c=0,ones=0, arr [3];
-      struct ListNode *l3, *last;
+      struct ListNode  *l3,  *last;
       struct ListNode *p,*l;
      
       l= new ListNode; 
