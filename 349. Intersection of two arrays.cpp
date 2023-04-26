@@ -7,11 +7,11 @@ public:
         vector <int> ans;
         while(i< n1 && j < n2)
         {
-            if(nums1[i]<nums2[j])
+            if(nums1[i]>nums2[j])
             {
                 i++;
             }
-            else if(nums2[j]<nums1[i])
+            else if(nums1[i]<nums2[j])
             {
                 j++;
             }
