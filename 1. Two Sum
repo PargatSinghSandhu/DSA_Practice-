@@ -9,7 +9,9 @@ public:
          {
              int first_element = nums[i];
              int second_element = target - first_element;
-             if(mpp.find(second_element)!=mpp.end())
+             if(mpp.find(second_element)!=mpp.end()) // The find() method on a map returns an iterator to the element with the specified key. 
+                                                          If the key is not present, the iterator returned by find() points to the end of the map. 
+                                                           Therefore, the condition if(map.find(second)!=map.end()) is true if and only if the key second is present in the map map.
              {
                  return {mpp[second_element], i};
              }
