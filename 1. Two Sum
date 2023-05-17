@@ -1,25 +1,26 @@
+
 class Solution 
 {
 public:
     vector<int> twoSum(vector<int>& nums, int target) 
     {
+        map<int, int> mymap;
 
-         map<int, int> mpp;
-         for(int i=0;i<nums.size();i++)
-         {
-             int first_element = nums[i];
-             int second_element = target - first_element;
-             if(mpp.find(second_element)!=mpp.end()) // The find() method on a map returns an iterator to the element with the specified key. 
+        for(int i=0; i<nums.size();i++)
+        {
+            int first = nums[i];
+            int second = target - first ;
+            if(mymap.find(second)!=mymap.end()). // The find() method on a map returns an iterator to the element with the specified key. 
                                                           If the key is not present, the iterator returned by find() points to the end of the map. 
                                                            Therefore, the condition if(map.find(second)!=map.end()) is true if and only if the key second is present in the map map.
-             {
-                 return {mpp[second_element], i};
-             }
-             mpp[first_element] = i;
-
-         }
+            {
+                return {mymap[second], i};
+            }
+            else 
+            mymap[first]=i;
+        }
+        return {0,0};
          
-         return {-1,-1};
     } 
     
 };
