@@ -21,7 +21,7 @@ public:
 
         queue<TreeNode*>q;
         q.push(root);
-        int sum=0;
+        int sum=INT_MIN;
         int level=0;
         int lev=0;
         
@@ -33,6 +33,7 @@ public:
             vector<int> sub;
             int count=0;
             level++;
+            
             
             for(int i=0;i<size;i++)
             {
@@ -49,10 +50,12 @@ public:
                 count = count+(node->val);
                 
             }
+            
             if(count>sum)
             {
                 sum=count;
                 lev=level;
+                cout<<sum<<level;
             }
 
         }
