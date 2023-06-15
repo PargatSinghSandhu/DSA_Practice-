@@ -26,7 +26,7 @@ public:
             int size=q.size();
             for(int i=0;i<size;i++)
             {
-                TreeNode*node=q.front();
+                TreeNode*node=q.front() ;
                 q.pop();
 
 
