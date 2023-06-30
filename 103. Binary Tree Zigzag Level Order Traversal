@@ -20,27 +20,28 @@ public:
             return result;
         }
 
-        queue<TreeNode*> queue;
-        queue.push(root);
+        queue<TreeNode*> zi_queue;
+        zi_queue.push(root);
         bool lefttoright = true;
 
-        while(!queue.empty())
+        while(!zi_queue.empty())
         {
-            int size = queue.size();
+            int size = zi_queue.size();
             vector <int> row(size);
             for(int i=0;i<size;i++)
             {
-                TreeNode*node = queue.front();
+                TreeNode*node = zi_queue.front();
+                zi_queue.pop();
                 int index = (lefttoright)? i:(size-1-i);
 
                 row[index]=node->val;
                 if(node->left)
                 {
-                    queue.push(node->left);
+                    zi_queue.push(node->left);
                 }
                 if(node->right)
                 {
-                    queue.push(node->right);
+                    zi_queue.push(node->right);
                 }
             }
             lefttoright =!lefttoright;
