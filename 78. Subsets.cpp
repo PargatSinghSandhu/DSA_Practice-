@@ -3,30 +3,26 @@ public:
     vector<vector<int>> subsets(vector<int>& nums) {
         
 
-        int n=nums.size();
-        vector<vector<int>>ans;
-        sub(0, ans,nums,n );
-        return ans;
+        
+        vector<int>subset;
+        vector<vector<int>>res;
+        sub(0, nums,subset,res );
+        return res;
 
     }
 
-    vector<vector<int>> sub (int ind, vector<int>&ans, vector<int>nums, int n)
+    void sub(int index, vector<int>& nums, vector<int>& subset, vector<vector<int>>& result)
     {
-        if(ind==n)
+        if(index==nums.size())
         {
-            for(auto it: ds)
-            {
-                cout<<it<<" ";
-                
-            }
-            cout<<end;
+            result.push_back(subset);
             return;
         }
 
-        ans.push_back(nums[ind]);
-        sub(ind+1, ans, nums,n);
-        ans.pop_back();
+        subset.push_back(nums[index]);
+        sub(index+1, nums, subset,result);
+        subset.pop_back();
 
-        sub(ind+1, ans, nums, n);
+        sub(index+1, nums, subset, result);
     }
 };
