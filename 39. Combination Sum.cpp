@@ -14,6 +14,7 @@ public:
 
     void findcomb(int index, int n, vector<vector<int>> &ans, vector<int> &candidates, int target,vector<int> &ds )
     {
+        
         if(index==n)
         {
             if(target==0)
@@ -23,11 +24,14 @@ public:
             return;
         }
 
+
         if(candidates[index]<=target)
         {
+
             ds.push_back(candidates[index]);
-            findcomb(index,n, ans, candidates, target-candidates[index], ds);
+            findcomb(index, n, ans, candidates, target-candidates[index], ds);
             ds.pop_back();
+
         }
         findcomb(index+1, n, ans, candidates, target, ds);
     }
