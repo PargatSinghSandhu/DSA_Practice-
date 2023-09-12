@@ -27,14 +27,12 @@ public:
         {
             return 0;
         }
-        int lh= max(0,diam(root->left, maxi));
-        int rh = max(0,diam(root->right, maxi));
+        int lhsum = max(0, diam(root->left, maxi));
+        int rhsum = max(0, diam(root->right, maxi));
+
+        maxi = max(maxi, (lhsum+rhsum+root->val));
+
+        return root->val+ max(lhsum, rhsum);
         
-
-        maxi = max (maxi, (lh+rh+root->val));
-
-        return (root->val)+max(lh,rh);
-
-
     }
 };
