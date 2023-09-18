@@ -1,41 +1,39 @@
 class Solution {
 public:
     vector<vector<int>> combinationSum(vector<int>& candidates, int target) {
-        vector<vector<int>> ans;
-        int n = candidates.size();
-        vector<int> ds;
-        findcomb(0, n, ans, candidates, target, ds);
-        return ans;
 
+        int n = candidates.size();
+        vector<int> sub;
+        vector<vector<int>>ans;
+        comb(0, target, candidates, sub, ans, n);
+        return ans;
+ 
         
+      
     }
 
 
-
-    void findcomb(int index, int n, vector<vector<int>> &ans, vector<int> &candidates, int target,vector<int> &ds )
+    void comb(int index, int target, vector<int>& candidates, vector<int> & sub,  vector<vector<int>>&ans, int n)
     {
-        
-        if(index==n)
+        if(target==0)
         {
-            if(target==0)
-            {
-                ans.push_back(ds);
-            }
+            ans.push_back(sub);
             return;
         }
-
-
+        else if(index==n)
+        {
+            return;
+        }
+        
         if(candidates[index]<=target)
         {
-
-            ds.push_back(candidates[index]);
-            findcomb(index, n, ans, candidates, target-candidates[index], ds);
-            ds.pop_back();
-
+            sub.push_back(candidates[index]);
+            comb(index, target-candidates[index], candidates, sub, ans, n);
+            sub.pop_back();
+            
         }
-        findcomb(index+1, n, ans, candidates, target, ds);
+        comb(index+1, target, candidates, sub, ans,n);
     }
-
 
 
 };
