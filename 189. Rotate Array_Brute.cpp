@@ -10,7 +10,7 @@ public:
         {
             temp.push_back(nums[(n-d)+i]);
         }
-        for(int i = n-1;i>=d;i--)
+        for(int i = n-1;i>=d;i--) // when you do rotate right, go from end to begining., in left, go from begining to end.
         {
             nums[i]=nums[i-d];
         }
