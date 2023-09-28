@@ -1,0 +1,32 @@
+class Solution {
+public:
+    void moveZeroes(vector<int>& nums) {
+        
+        int size = nums.size();
+        int count = 0;
+        queue<int>que;
+
+        for(int i = 0;i<size;i++)
+        {           
+            if(nums[i]!=0)
+            {
+                que.push(nums[i]);
+            }           
+        }
+        
+        
+        for(int i=0;i<size;i++)
+        {
+            if(!que.empty())
+            {
+                nums[i]=que.front();
+                que.pop();
+            }
+            else
+            {
+                nums[i]=0;
+            }
+        }        
+        
+    }
+};
