@@ -7,7 +7,6 @@ public:
         while(low<=high)
         {
             int mid = (low+high)/2;
-            cout<<mid<<" ";
             if(small(nums, mid)<=threshold)
             {
                 ans= mid;
