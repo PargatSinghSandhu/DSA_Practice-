@@ -4,7 +4,7 @@ public:
         
         int low = *min_element(bloomDay.begin(),bloomDay.end());
         int high = *max_element(bloomDay.begin(), bloomDay.end());
-        long long n = bloomDay.size(), ans;
+        long long n = bloomDay.size();
         long long m = p, k=q;
 
         if(m*k>n) return -1;
@@ -15,7 +15,7 @@ public:
 
             if(possible(bloomDay, m, k, mid)==true)
             {
-                ans = mid;
+                //ans = mid;
                 high = mid-1;
             }
             else
@@ -25,7 +25,7 @@ public:
 
 
         }
-        return ans;
+        return low;
     }
 
     bool possible(vector<int>& bloomDay, int m, int k, int day)
