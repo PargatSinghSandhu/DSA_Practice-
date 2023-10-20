@@ -1,0 +1,28 @@
+push(x)
+
+{
+if(count == n) return -1;  //array is full
+
+// if the array is not full, we generally push into rear but we are considering it as a circular so we usinf rear%n
+
+a[rear%n] = x ;    // e.g 2%5 = 2, because 2 will be divied by 5 so remainder will be 2;
+rear++;
+count++
+}
+
+pop()
+{
+if(count==0) return null; // no elements in the queue
+
+a[front%n] = -1 //we generally pop the front but we are considering it as a circular so we usinf rear%n
+
+front++;
+count--;
+}
+
+top()
+{
+if(count == 0) return -1 // empty array;
+
+return a(front%n);
+}
