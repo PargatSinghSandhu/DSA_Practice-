@@ -1,28 +1,35 @@
-#include<bits/stdc++.h>
-vector<int> nextGreaterElement(vector<int>& arr, int n)
-{
-	
-    stack < int > st;
-    vector < int > nge(n,-1) ;
+class Solution {
+public:
+    vector<int> nextGreaterElement(vector<int>& nums1, vector<int>& nums2) {
+        
+        int n=nums2.size();
+        stack<int> st;
+        vector<int> ans;
+        map<int, int> nge;
 
-    for (int i = n - 1; i >= 0; i--)
-    {
-        while (!st.empty() && arr[i] >= st.top())
+        for(int i = n-1;i>=0;i--)
         {
-            st.pop();
-        }
-        if (st.empty()==true)
-        {
-            nge[i] = -1;
-            st.push(arr[i]);
-        }
-        else 
-        {
-            nge[i] = st.top();
-            st.push(arr[i]);
+            while(!st.empty() && nums2[i]>=st.top())
+            {
+                st.pop();
+            }
 
-        }    
+            if(st.empty())
+            {
+                nge[nums2[i]] = -1;
+            }
+            else 
+            {
+                nge[nums2[i]] = st.top();
+
+            }
+            st.push(nums2[i]);
+        }
+
+        for(int i = 0;i<nums1.size();i++)
+        {
+            ans.push_back(nge[nums1[i]]);
+        }
+        return ans;
     }
-    return nge;
-
-}
+};
