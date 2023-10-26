@@ -12,7 +12,8 @@ public:
             {
                 return true;
             }
-            if(nums[low]==nums[mid] && nums[mid]==nums[high])
+            if(nums[low]==nums[mid] && nums[mid]==nums[high]) // if we find that the elemtns are same 
+                                                            // then it will be hard to identify the sorted half so we do this
             {
                 low++;
                 high--;
